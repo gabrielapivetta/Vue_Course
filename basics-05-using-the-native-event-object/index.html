@@ -18,14 +18,16 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="add(10)">Add 10</button>
-      <button v-on:click="reduce(5)">Subtract 5</button>
+      <!-- @ = v-on:  &  : = v-bind: -->
+      <button @click="add(10)">Add 10</button>
+      <button @click="reduce(5)">Subtract 5</button>
       <p>Result: {{ counter }}</p>
       <input type="text" v-model="name">
+      <input type="text" v-model="lastName">
       <!-- v-model substitutes v-bind:value and v-on:input together -->
       <!-- it is called two way binding -->
-      <button v-on:click="resetInput">Reset Input</button>
-      <p>Your Name: {{ name }}</p>
+      <button @click="resetInput">Reset Input</button>
+      <p>Your Name: {{ fullName }}</p> <!--fullname is pointed at, not being called as a function because it is used as data-->
     </section>
   </body>
 </html>
