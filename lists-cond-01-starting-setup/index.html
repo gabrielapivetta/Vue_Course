@@ -20,14 +20,22 @@
       <h2>My course goals</h2>
       <input type="text" v-model="enteredGoalValue"/>
       <button @click="addGoal">Add Goal</button>
+      <!-- v-if and v-for should not be used on the same element -->
       <!-- v-if hides elements from DOM and can be bad for performance if the element appears and disappears a lot -->
       <!-- in this case it would be better to use v-show, which sets a display:none when its condition isn't met -->
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <!-- v-else or v-else-if have to be used on an element directly after one using v-if -->
       <ul v-else>
         <!-- v-for only renders the new added element -> good for performance -->
-        <li v-for="(goal, index) in goals">{{ goal }} - {{ index }}</li>
+        <!-- key atribute makes everything inside the list item belong together... if an item is deleted it won't affect others -->
+        <!-- key names should be unique, like IDs -->
+        <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
+          <p>{{ goal }} - {{ index }}</p>
+          <!-- click:stop makes the item not disappear when the input box is clicked -->
+          <input type="text" @click.stop>
+        </li>
       </ul>
+      
       <ul>
         <!-- Now this is cool!! -->
         <!-- v-for will only show Max and 31 as two separate list items, since they are the values in the object!! -->
@@ -42,6 +50,7 @@
         <!-- This will print all numbers 1 through 10 -->
         <li v-for="num in 10">{{num}}</li>
       </ul>
+    
     </section>
   </body>
 </html>
