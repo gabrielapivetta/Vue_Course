@@ -13,6 +13,7 @@
         {{ emailAddress }}
       </li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button>
   </li>
 </template>
 
@@ -71,7 +72,7 @@ export default {//here the props are written without dash, but in the html it ne
     toggleFavorite() {
       //this.friendIsFavorite = !this.friendIsFavorite;
       this.$emit('toggle-favorite', this.id); //this allows to send data changed by an event back to the data base.
-    }
+    },
   }
 };
 </script>
