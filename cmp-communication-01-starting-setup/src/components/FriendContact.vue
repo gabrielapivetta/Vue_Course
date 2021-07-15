@@ -17,6 +17,7 @@
 </template>
 
 <script>
+//Basically: props send data into a component and events send data out of a component
 export default {//here the props are written without dash, but in the html it needs dashes, ex: phone-number.
     //the props can be called in the template with this. in front
     //props: ['name', 'phoneNumber', 'emailAddress', 'isFavorite'],
@@ -46,6 +47,18 @@ export default {//here the props are written without dash, but in the html it ne
         //}
       }
     },
+    //emits are not necessary, they just show there are events in the code somewhere and help to understand errors when working in a team
+    //emits: ['toggle-favorite'],
+    //emits: {
+    //  'toggle-favorite': function(id) {
+    //    if (id) {
+    //      return true;
+    //    } else {
+    //      console.warn('Id is missing!');
+    //      return false;
+    //    }
+    //  }
+    //}
   data() {
     return {
       detailsAreVisible: false,
